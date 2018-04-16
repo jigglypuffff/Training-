@@ -1,3 +1,11 @@
+
+//*********************************************************************** 
+//	Program name : 			Reverse
+//	Program Description :	To display reverse of each word of the entered 
+//							string with no change in its position.
+//***********************************************************************
+
+
 package com.training.day1;
 import java.util.*;
 class Reverse
