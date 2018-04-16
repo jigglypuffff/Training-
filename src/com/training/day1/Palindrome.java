@@ -1,3 +1,12 @@
+
+
+//********************************************************************************* 
+//	Program name : 			Palindrome
+//	Program Description :	To display if the entered integer is palindrome or not.
+//*********************************************************************************
+
+
+
 package com.training.day1;
 
 
