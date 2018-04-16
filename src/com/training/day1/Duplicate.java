@@ -2,7 +2,7 @@
 //*********************************************************************** 
 //	Program name : 			Duplicate
 //	Program Description :	To display true if duplicate characters or digits 
-//							occurs in entered string or integer.
+//				occurs in entered string or integer.
 //***********************************************************************
 
 
@@ -39,12 +39,12 @@ public class Duplicate
 	            
 	            if(count>=1)
 	            {
-	            	System.out.println("True");
+	            	System.out.println("True");   // Duplicate digits or characters found
                 
 	            }
 	            else
 	            {
-            	  System.out.println("False");
+            	  	System.out.println("False");   // No Duplicate digits or characters found
 	            }
 	       }
 }
