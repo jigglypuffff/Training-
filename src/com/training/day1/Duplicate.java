@@ -1,8 +1,18 @@
+
+//*********************************************************************** 
+//	Program name : 			Duplicate
+//	Program Description :	To display true if duplicate characters or digits 
+//							occurs in entered string or integer.
+//***********************************************************************
+
+
+
+
 package com.training.day1;
 
 import java.util.Scanner;
 
-public class Duplicate 
+public class Duplicate
 {
 	 static Scanner s;
 	        public static void main(String [] args) 
