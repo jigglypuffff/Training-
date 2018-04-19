@@ -15,7 +15,7 @@ public class StringPalindrome {
 		
 		
 		
-		 Scanner s = new Scanner(System.in);
+		 Scanner str = new Scanner(System.in);
 		    String[] wordlist = new String[10];
 		
 		    for(int i = 0; i < wordlist.length;i++)
@@ -29,7 +29,7 @@ public class StringPalindrome {
 		        System.out.println(names);
 		    }
 		
-		pattern=s.next();//Input the pattern 
+		pattern=str.next();//Input the pattern 
 		
 		StringBuilder inputreverse = new StringBuilder();
 		 
