@@ -2,7 +2,7 @@
 //*********************************************************************** 
 //	Program name : 			Duplicate
 //	Program Description :	To display true if duplicate characters or digits 
-//							occurs in entered string or integer.
+//			        occurs in entered string or integer.
 //***********************************************************************
 
 
@@ -13,10 +13,13 @@ import java.util.Scanner;
 public class Duplicate 
 {
 	 static Scanner s;
-	        public static void main(String [] args) 
+	        public static void main(final String [] args) 
 	        {
 	            String n, a[];
-	            int i,j,l,count=0;
+	            
+		    
+		    int l;
+		    int count=0;
 	            System.out.println("Enter the word or integer : ");
 	            s= new Scanner(System.in);
 	            n=s.nextLine();
@@ -24,9 +27,9 @@ public class Duplicate
 	            l = a.length;
 	            
 	     
-	            for(i=0; i<l; i++)
+	            for(int i=0; i<l; i++)
 	            {
-	                for(j=i+1; j<l; j++)
+	                for(int j=i+1; j<l; j++)
 	                {
 	                    if(a[i].equals(a[j])) 
 	                    {
@@ -42,7 +45,7 @@ public class Duplicate
 	            }
 	            else
 	            {
-            	  System.out.println("False");    // No Duplicate digits or characters found
+            		  System.out.println("False");    // No Duplicate digits or characters found
 	            }
 	       }
 }
