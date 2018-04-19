@@ -20,9 +20,7 @@ public class RearrangeString
 		{
 			if(arr[i]!=arr[i+1])
 			{
-				System.out.println(input);
-				
-
+				System.out.println(input);	
 			}
 		}
 		
@@ -64,8 +62,6 @@ public class RearrangeString
 		}
 		catch (StringIndexOutOfBoundsException e) 
 		{
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
 			System.out.println("null");
 			sc.close();
 		}
