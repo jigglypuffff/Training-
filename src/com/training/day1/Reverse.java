@@ -12,17 +12,17 @@ package com.training.day1;
 import java.util.*;
 class Reverse
 {
-	public static void main(String[] aaa)
+	public static void main(final String[] args)
 	{
-		String s;
+		String str;
 		String rev="";
 		String temp=" ";
-		Scanner ob=new Scanner(System.in);
+		Scanner obj=new Scanner(System.in);
 		System.out.println("Enter String");
-		s=ob.nextLine();
+		str=obj.nextLine();
 		
-			for(int i=s.length()-1;i>=0;i--)
-			rev=rev+s.charAt(i);
+			for(int i=str.length()-1;i>=0;i--)
+			rev=rev+str.charAt(i);
 			String[] a=rev.split(" ");
 			int j=a.length-1;
 			
