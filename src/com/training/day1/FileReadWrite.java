@@ -57,8 +57,8 @@ public class FileReadWrite
             File data = new File("./hello.txt");  
             FileOutputStream file2 = new FileOutputStream(data);  
             FilterOutputStream filter = new FilterOutputStream(file2);  
-            String s="Welcome to java.";      
-            byte b[]=s.getBytes();      
+            String str="Welcome to java.";      
+            byte b[]=str.getBytes();      
             filter.write(b);     
             filter.flush();  
             filter.close();  
