@@ -30,9 +30,13 @@ public class Palindrome
        }
         
        if(num==sum)
+       {
            return true;
+       }
        else
+       {
            return false;
+       }
    }
     
    public static void main(String args[]) throws IOException, InputMismatchException
