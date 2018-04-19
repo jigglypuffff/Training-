@@ -3,17 +3,17 @@ package com.training.april17;
 public class LambdaExp
 {
 
-		//Functional Interface
+		@FunctionalInterface
 		interface CheckOdd{  
 		public boolean isOdd(int number);  
 		}  
 
-		//Functional Interface
+		@FunctionalInterface
 		interface CheckPrime{  
 		public boolean isPrime(int number);  
 		}  
 
-		//Functional Interface
+		@FunctionalInterface
 		interface CheckPalindrome{  
 		public boolean isPalindrome(int number);  
 		} 
