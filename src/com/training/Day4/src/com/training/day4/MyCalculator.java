@@ -15,44 +15,36 @@ public class MyCalculator {
 		return 1;
 	}
 	
-	public static void main(final String args[])
+	public static void main(final String args[]) throws MyCustomException
 	{
 		int number;
 		int powerOfNum;
 		
-		System.out.println("Please ENter The Number");
+		System.out.println("Please Enter The Number");
 		number=inputval.nextInt();
 		
-		if(number==0)
+		
+		while(number==0 || number<0)
 		{
-			System.out.println("The number should not be 0");
+			System.out.println("The number should not be 0 or negative");
 			System.out.println("Please ENter The Number");
 			number=inputval.nextInt();
+			
 		}
-		
-		
-		
-		else if(number<0)
-		{
-			System.out.println("The number cannot be negative");
-			System.out.println("Please ENter The Number");
-			number=inputval.nextInt();
-		}
-		
 		
 		
 		System.out.println("Please ENter The Power");
 		powerOfNum=inputval.nextInt();
 		
 
-	    if(powerOfNum<0)
+	   while(powerOfNum<0)
 		{
 			System.out.println("The power cannot be negative");
 			System.out.println("Please ENter The Power");
 			powerOfNum=inputval.nextInt();
 		}
 		
-		final long result=power(number,powerOfNum);
+		final long result = power(number,powerOfNum);
 		System.out.println("Power Of The Entered Value is: "+result);
 	}
 }
