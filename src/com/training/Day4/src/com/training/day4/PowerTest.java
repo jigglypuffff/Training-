@@ -2,20 +2,13 @@ package com.training.day4;
 
 import java.util.Scanner;
 
-public class MyCalculator {
+public class PowerTest {
 	
+	static long result=1;
 	static Scanner inputval=new Scanner(System.in);
 	
-	public static long power(final int number, final int pow)
-	{
-		if(pow>0)
-		{
-			return number*power(number,pow-1);
-		}
-		return 1;
-	}
 	
-	public static void main(final String args[]) throws MyCustomException
+	public static void main(String[] args)
 	{
 		int number;
 		int powerOfNum;
@@ -23,7 +16,7 @@ public class MyCalculator {
 		System.out.println("Please Enter The Number");
 		number=inputval.nextInt();
 		
-		
+
 		while(number==0 || number<0)
 		{
 			System.out.println("The number should not be 0 or negative");
@@ -46,5 +39,18 @@ public class MyCalculator {
 		
 		final long result = power(number,powerOfNum);
 		System.out.println("Power Of The Entered Value is: "+result);
+		
+	}
+	
+	public static long power( int number, final int pow)
+	{
+		for(int i=1;i<=pow;i++)
+		{
+			result=result*number;
+			
+		}
+		//result=number;
+		return result;
+		
 	}
 }
