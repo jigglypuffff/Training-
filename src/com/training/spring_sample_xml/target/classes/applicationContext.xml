@@ -9,7 +9,9 @@
 	
 	<bean name="customerService" class="com.day6.service.CustomerServiceImpl">
 	
-	<property name="custDao" ref="customerDao" ></property>
+	<!-- 	<property name="custDao" ref="customerDao" ></property> -->
+	
+	<constructor-arg index ="0" ref="customerDao"></constructor-arg>
 	</bean>
 
 </beans>

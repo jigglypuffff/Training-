@@ -14,6 +14,16 @@ public class CustomerServiceImpl implements CustomerService {
 	 * 
 	 * @see com.day6.service.CustomerService#findAll()
 	 */
+
+	public CustomerServiceImpl() {
+
+	}
+
+	public CustomerServiceImpl(CustomerDao custDao) {
+		this.custDao = custDao;
+	}
+
+	
 	@Override
 	public List<Customer> findAll() {
 		return custDao.findAll();
