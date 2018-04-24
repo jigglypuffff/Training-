@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
 
 public class Address extends Contact{
 
@@ -5,7 +9,17 @@ public class Address extends Contact{
 	private String houseNumber;
 	private String zipCode;
 	private String city;
+	
+	//static List<Contact> list=new ArrayList<>();
+	
+	//Customer customer = new Customer();
 
+	//customer.
+	//customer
+	
+	//list.add(customer);
+
+	
 	public String getStreet() {
 		return street;
 	}

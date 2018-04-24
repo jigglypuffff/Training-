@@ -1,15 +1,11 @@
 
 public class CheckingAccImpl implements Account{
 
-	private double balance;
-	private double interestRate= 10;
-	 private int interestPeriod;
-	
+	private int interestRate= 4;
 	@Override
-	public double findInterest() {
-		
-		double interest= (balance*interestRate*interestPeriod)/100;
-		return interest;
+	public int findInterest(int balance, int interestRate, int period) {
+		int sInterest= (balance*interestRate*period)/100;
+		return sInterest;
 	}
 
 	

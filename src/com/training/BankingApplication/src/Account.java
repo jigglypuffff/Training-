@@ -1,7 +1,9 @@
 
 public interface Account {
 
-	public double findInterest();
+	public int findInterest(int balance,int interestRate,int period);
+	
+	
 
 	// public String displayStatement();
 }
