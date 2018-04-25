@@ -9,4 +9,35 @@
 
 	<context:component-scan base-package="com.day7" />
 
+	<bean id="contact" class="com.day7.model.Contact">
+		<constructor-arg value="02228545686" index="0"></constructor-arg>
+		<constructor-arg value="9920680901" index="1"></constructor-arg>
+		<constructor-arg value="ash@gmail.com" index="2"></constructor-arg>
+
+	</bean>
+
+	<bean id="address" class="com.day7.model.Address">
+		<constructor-arg value="Road" index="0"></constructor-arg>
+		<constructor-arg value="9" index="1"></constructor-arg>
+		<constructor-arg value="4647" index="2"></constructor-arg>
+		<constructor-arg value="NY" index="3"></constructor-arg>
+
+
+	</bean>
+
+	<bean id="customer" class="com.day7.model.Customer">
+		<constructor-arg value="1" index="0"></constructor-arg>
+		<constructor-arg value="Aishwarya" index="1"></constructor-arg>
+		<constructor-arg value="Sawant" index="2"></constructor-arg>
+		<constructor-arg value="2000" index="3"></constructor-arg>
+		<constructor-arg index="4">
+			<ref bean="contact" />
+		</constructor-arg>
+		<constructor-arg index="5">
+			<ref bean="address" />
+		</constructor-arg>
+
+	</bean>
+
+
 </beans>
