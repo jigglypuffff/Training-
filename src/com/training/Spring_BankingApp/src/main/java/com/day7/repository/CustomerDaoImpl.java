@@ -28,7 +28,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			Contact contact=new Contact();
 			
 			System.out.println(customerDetails.getFirstName()+" " +customerDetails.getLastName());
-			System.out.println(contact.getMobile());
+			//System.out.println(contact.getMobile());
 			System.out.println("Initial balance is: "+customerDetails.getInitialBalance());
 		} else {
 			System.out.println("No such user");

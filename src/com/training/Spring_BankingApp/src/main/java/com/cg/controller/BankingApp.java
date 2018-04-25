@@ -20,8 +20,15 @@ public class BankingApp {
 		
 		System.out.println("Name: "+customer.getFirstName()+" "+customer.getLastName());
 		
+		System.out.println("current balance after withdraw = " +(customer.getInitialBalance()-400) );
+		
+		System.out.println("**********");
+		
+
+		
 		ser.addCustomer(customer);
 		ser.viewCustomer(customer.getCustomerId());
+		ser.performTransaction(customer.getCustomerId(),customer.getCustomerId(),400);
 	}
 
 }
