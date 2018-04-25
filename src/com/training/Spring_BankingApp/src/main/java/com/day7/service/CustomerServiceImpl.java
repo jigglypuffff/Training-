@@ -5,31 +5,32 @@ import org.springframework.stereotype.Service;
 
 import com.day7.model.Customer;
 import com.day7.repository.CustomerDao;
+import com.day7.repository.CustomerDaoImpl;
 
 @Service("customerService")
 public class CustomerServiceImpl implements CustomerService {
 
-	@Autowired
-	CustomerDao custDao;
+	
+	CustomerDao custDao=new CustomerDaoImpl();
 
 
 
 	@Override
 	public void addCustomer(Customer customer) {
-		// TODO Auto-generated method stub
+		custDao.addCustomer(customer);
 		
 	}
 
 	@Override
 	public int viewCustomer(String customer_id) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return custDao.viewCustomer(customer_id);
 	}
 
 	@Override
 	public int performTransaction(String user_id, String receiver_id, int amount) {
 		// TODO Auto-generated method stub
-		return 0;
+		return custDao.performTransaction(user_id, receiver_id, amount);
 	}
 
 }

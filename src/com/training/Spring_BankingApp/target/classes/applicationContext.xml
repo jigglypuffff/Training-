@@ -39,5 +39,6 @@
 
 	</bean>
 
+<bean name="customerService" class="com.day7.service.CustomerServiceImpl"> </bean>
 
 </beans>

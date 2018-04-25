@@ -3,6 +3,7 @@ package com.cg.controller;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.day7.model.Contact;
 import com.day7.model.Customer;
 import com.day7.service.CustomerService;
 import com.day7.service.CustomerServiceImpl;
@@ -15,9 +16,12 @@ public class BankingApp {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		Customer customer = (Customer) context.getBean("customer");
-		//System.out.println("Name: "+customer.getFirstName()+" "+customer.getLastName());
+		Contact contact = new Contact();
+		
+		System.out.println("Name: "+customer.getFirstName()+" "+customer.getLastName());
 		
 		ser.addCustomer(customer);
+		ser.viewCustomer(customer.getCustomerId());
 	}
 
 }

@@ -26,9 +26,10 @@ public class CustomerDaoImpl implements CustomerDao {
 		if (map.containsKey(customer_id)) {
 			Customer customerDetails = map.get(customer_id);
 			Contact contact=new Contact();
-			System.out.println(customerDetails.getFirstName() + customerDetails.getLastName());
+			
+			System.out.println(customerDetails.getFirstName()+" " +customerDetails.getLastName());
 			System.out.println(contact.getMobile());
-			System.out.println(customerDetails.getInitialBalance());
+			System.out.println("Initial balance is: "+customerDetails.getInitialBalance());
 		} else {
 			System.out.println("No such user");
 		}
