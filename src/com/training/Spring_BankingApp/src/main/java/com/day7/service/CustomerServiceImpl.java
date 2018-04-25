@@ -27,7 +27,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public int performTransaction(String user_id, String receiver_id, double amount) {
+	public int performTransaction(String user_id, String receiver_id, int amount) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

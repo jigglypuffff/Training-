@@ -7,6 +7,6 @@ public void addCustomer(Customer customer);
 	
 	public int viewCustomer(String customer_id);
 	
-	public int performTransaction(String user_id,String receiver_id,double amount);
+	public int performTransaction(String user_id,String receiver_id,int amount);
 	
 }

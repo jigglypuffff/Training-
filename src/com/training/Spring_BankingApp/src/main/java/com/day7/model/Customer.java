@@ -12,6 +12,7 @@ public class Customer {
 	private String contactNo;
 	private String email;
 	private String address;
+	private Account account;
 
 	public String getCustomerId() {
 		return customerId;
