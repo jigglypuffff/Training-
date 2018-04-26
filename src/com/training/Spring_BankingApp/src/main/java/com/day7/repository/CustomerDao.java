@@ -1,11 +1,13 @@
 package com.day7.repository;
 
+import java.util.Map;
+
 import com.day7.model.Customer;
 
 
 public interface CustomerDao {
 
-	public void addCustomer(Customer customer);
+	public void addCustomer(Customer customer,Map map);
 	
 	public int viewCustomer(String customer_id);
 	
