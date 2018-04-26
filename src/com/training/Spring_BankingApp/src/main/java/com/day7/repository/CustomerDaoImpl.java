@@ -5,27 +5,31 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-import com.day7.model.Contact;
 import com.day7.model.Customer;
 
 @Repository("customerRepository")
 public class CustomerDaoImpl implements CustomerDao {
 
-	Map<String, Customer> map = new HashMap();
-
+ /**
+ Map object of type Customer is created. 
+ */
+public Map<String, Customer> map = new HashMap();
+ public Map<String, Customer> getMap() {
+		return map;
+ }
 	@Override
-	public void addCustomer(Customer customer) {
+	public void addCustomer(final Customer customer) {
 
 		map.put(customer.getCustomerId(), customer);
 
 	}
 
 	@Override
-	public int viewCustomer(String customer_id) {
+	public int viewCustomer(final String customer_id) {
 
 		if (map.containsKey(customer_id)) {
-			Customer customerDetails = map.get(customer_id);
-			Contact contact=new Contact();
+			final Customer customerDetails = map.get(customer_id);
+			
 			
 			System.out.println(customerDetails.getFirstName()+" " +customerDetails.getLastName());
 			//System.out.println(contact.getMobile());
@@ -37,24 +41,24 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	@Override
-	public int performTransaction(String user_id, String receiver_id, int amount) {
+	public int performTransaction(final String user_id,final String receiver_id, final int amount) {
 		
 		if(map.containsKey(user_id)&& map.containsKey(receiver_id))
 		{
 			
-			Customer c1=map.get(user_id);
-			Customer c2=map.get(receiver_id);
-			if(c1.getInitialBalance()>amount)
+			final Customer cust1=map.get(user_id);
+			final Customer cust2=map.get(receiver_id);
+			if(cust1.getInitialBalance()>amount)
 			{
 			
-				int c1_updatedBalance= c1.getInitialBalance()-amount;
-				c1.setInitialBalance(c1_updatedBalance);
+				final int cust1_updatedBal= cust1.getInitialBalance()-amount;
+				cust1.setInitialBalance(cust1_updatedBal);
 			
-				int c2_updatedBalance= c1.getInitialBalance()+amount;
-				c2.setInitialBalance(c2_updatedBalance);
+				final int cust2_updatedBal= cust1.getInitialBalance()+amount;
+				cust2.setInitialBalance(cust2_updatedBal);
 				
-				map.put(user_id, c1);
-				map.put(receiver_id, c2);
+				map.put(user_id, cust1);
+				map.put(receiver_id, cust2);
 				
 				System.out.println("Transaction successful");
 				

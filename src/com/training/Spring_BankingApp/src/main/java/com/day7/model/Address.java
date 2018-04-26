@@ -2,9 +2,21 @@ package com.day7.model;
 
 public class Address {
 
+	/**
+	 Street name of customer's address
+	 */
 	private String street;
+	/**
+	 houser number of customer
+	 */
 	private String houseNumber;
+	/**
+	 zip code of city 
+	 */
 	private String zipCode;
+	/**
+	 city of customer 
+	 */
 	private String city;
 
 	// static List<Contact> list=new ArrayList<>();
@@ -14,8 +26,8 @@ public class Address {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Address(String fname, String lname, String ph, String mob, String email, String str, String hno, String pin,
-			String city) {
+	public Address(final String fname, final String lname, final String ph, final String mob,final String email,final String str,final String hno,final String pin,
+			final String city) {
 
 	}
 
@@ -29,7 +41,7 @@ public class Address {
 		return street;
 	}
 
-	public void setStreet(String street) {
+	public void setStreet(final String street) {
 		this.street = street;
 	}
 
@@ -37,7 +49,7 @@ public class Address {
 		return houseNumber;
 	}
 
-	public void setHouseNumber(String houseNumber) {
+	public void setHouseNumber(final String houseNumber) {
 		this.houseNumber = houseNumber;
 	}
 
@@ -45,7 +57,7 @@ public class Address {
 		return zipCode;
 	}
 
-	public void setZipCode(String zipCode) {
+	public void setZipCode(final String zipCode) {
 		this.zipCode = zipCode;
 	}
 
@@ -53,7 +65,7 @@ public class Address {
 		return city;
 	}
 
-	public Address(String street, String houseNumber, String zipCode, String city) {
+	public Address(final String street, final String houseNumber, final String zipCode,final String city) {
 		super();
 		this.street = street;
 		this.houseNumber = houseNumber;
@@ -61,7 +73,7 @@ public class Address {
 		this.city = city;
 	}
 
-	public void setCity(String city) {
+	public void setCity(final String city) {
 		this.city = city;
 	}
 

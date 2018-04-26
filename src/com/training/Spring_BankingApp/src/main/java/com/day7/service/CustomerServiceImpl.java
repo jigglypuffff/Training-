@@ -1,35 +1,35 @@
 package com.day7.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.day7.model.Customer;
 import com.day7.repository.CustomerDao;
 import com.day7.repository.CustomerDaoImpl;
 
-@Service("customerService")
+
 public class CustomerServiceImpl implements CustomerService {
 
 	
-	CustomerDao custDao=new CustomerDaoImpl();
+	/**
+	 * 
+	 */
+	public final CustomerDao custDao=new CustomerDaoImpl();
 
 
 
 	@Override
-	public void addCustomer(Customer customer) {
+	public void addCustomer(final Customer customer) {
 		custDao.addCustomer(customer);
 		
 	}
 
 	@Override
-	public int viewCustomer(String customer_id) {
+	public int viewCustomer(final String customer_id) {
 		
 		return custDao.viewCustomer(customer_id);
 	}
 
 	@Override
-	public int performTransaction(String user_id, String receiver_id, int amount) {
-		// TODO Auto-generated method stub
+	public int performTransaction(final String user_id,final String receiver_id,final int amount) {
+		
 		return custDao.performTransaction(user_id, receiver_id, amount);
 	}
 

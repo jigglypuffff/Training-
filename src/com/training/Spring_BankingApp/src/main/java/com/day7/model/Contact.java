@@ -2,22 +2,32 @@ package com.day7.model;
 
 public class Contact {
 
+	/**
+	 phone no of customer 
+	 */
 	private String phone;
-	public Contact(String phone, String mobile, String email) {
+	/**
+	 mobile no of customer 
+	 */
+	private String mobile;
+	/**
+	 email id of customer 
+	 */
+	private String email;
+
+	public Contact(final String phone,final String mobile, final String email) {
 		super();
 		this.phone = phone;
 		this.mobile = mobile;
 		this.email = email;
 	}
 
-	private String mobile;
-	private String email;
-
+	
 	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(String phone) {
+	public void setPhone(final String phone) {
 		this.phone = phone;
 	}
 
@@ -25,7 +35,7 @@ public class Contact {
 		return mobile;
 	}
 
-	public void setMobile(String mobile) {
+	public void setMobile(final String mobile) {
 		this.mobile = mobile;
 	}
 
@@ -38,7 +48,7 @@ public class Contact {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(final String email) {
 		this.email = email;
 	}
 

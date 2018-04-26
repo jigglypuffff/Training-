@@ -2,6 +2,7 @@ package com.day7.repository;
 
 import com.day7.model.Customer;
 
+
 public interface CustomerDao {
 
 	public void addCustomer(Customer customer);

@@ -38,7 +38,11 @@
 		</constructor-arg>
 
 	</bean>
+<!-- 
+<bean id="customerService" class="com.day7.service.CustomerServiceImpl"> </bean>
 
-<bean name="customerService" class="com.day7.service.CustomerServiceImpl"> </bean>
-
+  <bean id="customerController" class="com.cg.controller.CustomerController"/>
+  
+  <bean id="custDao" class="com.day7.repository.CustomerDaoImpl"/>
+  -->
 </beans>
