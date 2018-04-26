@@ -1,5 +1,8 @@
 package com.cg.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -28,7 +31,8 @@ public class BankingApp {
 		
 
 		
-		ser.addCustomer(customer);
+		final  Map<String, Customer> map = new HashMap();
+		ser.addCustomer(customer,map);
 		ser.viewCustomer(customer.getCustomerId());
 		ser.performTransaction(customer.getCustomerId(),customer.getCustomerId(),1000);
 	}

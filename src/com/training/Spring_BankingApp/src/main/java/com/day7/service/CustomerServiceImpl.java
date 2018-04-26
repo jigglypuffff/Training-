@@ -1,5 +1,7 @@
 package com.day7.service;
 
+import java.util.Map;
+
 import com.day7.model.Customer;
 import com.day7.repository.CustomerDao;
 import com.day7.repository.CustomerDaoImpl;
@@ -16,8 +18,8 @@ public class CustomerServiceImpl implements CustomerService {
 
 
 	@Override
-	public void addCustomer(final Customer customer) {
-		custDao.addCustomer(customer);
+	public void addCustomer(final Customer customer, final Map map) {
+		custDao.addCustomer(customer,map);
 		
 	}
 

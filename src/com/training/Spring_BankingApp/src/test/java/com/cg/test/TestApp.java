@@ -30,12 +30,12 @@ class TestApp {
 
 		assertEquals(0, map.size());
 
-		iserv.addCustomer(customer);
-		iserv.addCustomer(customer2);
+		iserv.addCustomer(customer,map);
+		iserv.addCustomer(customer2,map);
 
 		System.out.println(map.size());
 
-		assertEquals(0, map.size());
+		assertEquals(2, map.size());
 
 	}
 

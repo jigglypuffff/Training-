@@ -18,7 +18,7 @@ public Map<String, Customer> map = new HashMap();
 		return map;
  }
 	@Override
-	public void addCustomer(final Customer customer) {
+	public void addCustomer(final Customer customer,final Map map) {
 
 		map.put(customer.getCustomerId(), customer);
 
