@@ -2,13 +2,14 @@ package com.cg.controller;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
+import java.util.logging.Logger;
 import com.day7.model.Customer;
 import com.day7.service.CustomerService;
 import com.day7.service.CustomerServiceImpl;
 
 public class BankingApp {
 
+	public static final Logger log = Logger.getLogger("controller logger");
 	public static void main(final String[] args) {
 		
 		final CustomerService ser = new CustomerServiceImpl();
@@ -16,15 +17,15 @@ public class BankingApp {
 		final ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		final Customer customer = (Customer) context.getBean("customer");
 		
-		System.out.println("Name: "+customer.getFirstName()+" "+customer.getLastName());
+		log.info("Name: "+customer.getFirstName()+" "+customer.getLastName());
 		
-		System.out.println("The initial balance is : " +customer.getInitialBalance());
+		log.info("The initial balance is : " +customer.getInitialBalance());
 		
-		System.out.println("current balance after withdraw = " +(customer.getInitialBalance()-400) );
+		log.info("current balance after withdraw = " +(customer.getInitialBalance()-400) );
 		
-		System.out.println("current balance after deposit = " +(customer.getInitialBalance()+400));
+		log.info("current balance after deposit = " +(customer.getInitialBalance()+400));
 		
-		System.out.println("**********");
+		log.info("**********");
 		
 
 		
