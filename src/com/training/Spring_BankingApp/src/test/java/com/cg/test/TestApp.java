@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Test;
 
 import com.day7.model.Address;
@@ -15,6 +16,7 @@ import com.day7.service.CustomerServiceImpl;
 
 class TestApp {
 
+	final public static Logger log = Logger.getLogger("test logger");
 	@Test
 	public void testBankApp() {
 		final CustomerService iserv = new CustomerServiceImpl();
@@ -30,12 +32,12 @@ class TestApp {
 
 		assertEquals(0, map.size());
 
-		iserv.addCustomer(customer);
-		iserv.addCustomer(customer2);
+		iserv.addCustomer(customer,map);
+		iserv.addCustomer(customer2,map);
 
-		System.out.println(map.size());
+		log.info(map.size());
 
-		assertEquals(0, map.size());
+		assertEquals(2, map.size());
 
 	}
 
