@@ -1,5 +1,8 @@
 package com.cg.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -35,7 +38,8 @@ public class CustomerController {
 		customer.setFirstName(fname);
 		customer.setLastName(lname);
 		customer.setCustomerId(id);
-		 customerService.addCustomer(customer);
+		 final Map<String, Customer> map = new HashMap();
+		customerService.addCustomer(customer,map);
 		System.out.println("Success ");
 		return "Success";
 	}
