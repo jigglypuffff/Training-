@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean id = "custDao" class = "com.cg.supermarket.repository.CustomerDaoImpl"/>
+	
+	
+	<bean id = "custService" class = "com.cg.supermarket.service.CustomerServiceImpl">
+		<constructor-arg index="0" ref="custDao">  
+		</constructor-arg>
+	</bean>	
+	
+	<bean id="supplierDao" class = "com.cg.supermarket.repository.SupplierDaoImpl"/>
+	
+	<bean id="supplierServ" class = "com.cg.supermarket.service.SupplierServiceImpl">
+		<constructor-arg index="0" ref="supplierDao">  
+		</constructor-arg>
+		</bean>
+		
+	<bean id="retailerDao" class = "com.cg.supermarket.repository.RetailerDaoImpl"/>
+	
+	<bean id="retailerServ" class = "com.cg.supermarket.service.RetailerServiceImpl">
+		<constructor-arg index="0" ref="retailerDao">  
+		</constructor-arg>
+		</bean>
+		
+			
+	<bean id="goodsDao" class = "com.cg.supermarket.repository.GoodsDaoImpl"/>
+	
+	<bean id="goodsServ" class = "com.cg.supermarket.service.GoodsServiceImpl">
+		<constructor-arg index="0" ref="goodsDao">  
+		</constructor-arg>
+		</bean>
+	
+	
+
+</beans>
