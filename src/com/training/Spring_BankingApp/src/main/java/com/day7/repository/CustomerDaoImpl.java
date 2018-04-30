@@ -2,7 +2,6 @@ package com.day7.repository;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +9,7 @@ import com.day7.model.Customer;
 
 @Repository("customerRepository")
 public class CustomerDaoImpl implements CustomerDao {
-public static final Logger log = Logger.getLogger("controller logger");
+
  /**
  Map object of type Customer is created. 
  */
@@ -32,11 +31,11 @@ public Map<String, Customer> map = new HashMap();
 			final Customer customerDetails = map.get(customer_id);
 			
 			
-			log.info(customerDetails.getFirstName()+" " +customerDetails.getLastName());
+			System.out.println(customerDetails.getFirstName()+" " +customerDetails.getLastName());
 			//System.out.println(contact.getMobile());
-			log.info("Initial balance is: "+customerDetails.getInitialBalance());
+			System.out.println("Initial balance is: "+customerDetails.getInitialBalance());
 		} else {
-			log.info("No such user");
+			System.out.println("No such user");
 		}
 		return 0;
 	}
@@ -61,17 +60,17 @@ public Map<String, Customer> map = new HashMap();
 				map.put(user_id, cust1);
 				map.put(receiver_id, cust2);
 				
-				log.info("Transaction successful");
+				System.out.println("Transaction successful");
 				
 			}
 			else
 			{
-				log.info("Insufficient balance.");
+				System.out.println("Insufficient balance.");
 			}
 		}
 		else
 		{
-			log.info();
+			System.out.println();
 		}
 		return 0;
 	

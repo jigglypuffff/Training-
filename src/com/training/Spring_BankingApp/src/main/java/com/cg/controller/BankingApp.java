@@ -1,8 +1,14 @@
 package com.cg.controller;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.Map;
 
+=======
+
+import java.util.HashMap;
+import java.util.Map;
+>>>>>>> ae653b7c304c5f2ceea5fc12410dae97681871d2
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.logging.Logger;
@@ -31,7 +37,10 @@ public class BankingApp {
 		log.info("**********");
 		
 
+<<<<<<< HEAD
 		
+=======
+>>>>>>> ae653b7c304c5f2ceea5fc12410dae97681871d2
 		final  Map<String, Customer> map = new HashMap();
 		ser.addCustomer(customer,map);
 		ser.viewCustomer(customer.getCustomerId());

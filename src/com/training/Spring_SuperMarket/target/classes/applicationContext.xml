@@ -36,5 +36,10 @@
 		</bean>
 	
 	
-
+	<bean id = "cust" class = "com.cg.supermarket.model.Customer"/>
+	
+	<bean id = "supp" class = "com.cg.supermarket.model.Supplier"/>
+	
+	<bean id = "good" class = "com.cg.supermarket.model.Goods"/>
+	
 </beans>

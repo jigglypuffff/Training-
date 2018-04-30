@@ -26,75 +26,91 @@ class TestSuperMarket {
 
 	@Test
 	void test() {
-		//customer class
+	
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
 		CustomerService custSer = context.getBean("custService",CustomerService.class);
 		
-		//supplier class
-		ApplicationContext context1 = new ClassPathXmlApplicationContext("applicationContext.xml");
+		SupplierService sSer = context.getBean("supplierServ",SupplierService.class);
 		
-		SupplierService sSer = context1.getBean("supplierServ",SupplierService.class);
+		RetailerService rSer = context.getBean("retailerServ",RetailerService.class);
 		
-		//retailer class
-		ApplicationContext context2 = new ClassPathXmlApplicationContext("applicationContext.xml");
+		GoodsService gSer = context.getBean("goodsServ",GoodsService.class);
 		
-		RetailerService rSer = context2.getBean("retailerServ",RetailerService.class);
+		Customer customer = new Customer(1, "yash", "Thane", "cash");      // new customer entries entered in customer object
 		
-		//goods class
-		ApplicationContext context3 = new ClassPathXmlApplicationContext("applicationContext.xml");
+		Customer customer2 = new Customer(1, "aishu", "Thane", "card");
+
+		Supplier serv = new Supplier(2, "Ashish", "Thane", 10, 1001, 100);    // new supplier entries entered in supplier
+																			 // object
 		
-		GoodsService gSer = context3.getBean("goodsServ",GoodsService.class);
+		Supplier serv2 = new Supplier(2, "Ashish", "Thane", 10, 1001, 100); 
+
+		Retailer retail = new Retailer(101, "Sammy", "Thane");              //new retailer entries
 		
+		Goods goods = new Goods(100,"Tv","1",2000.0);                        //new goods entries
 		
-		
+		Goods goods2 = new Goods(101,"Fridge","2",4000.0);    
 		
 
-		Customer customer = new Customer(1, "Arjav", "Thane", "cash");// new customer entries entered in customer object
-
-		Supplier serv = new Supplier(2, "Ashish", "Thane", 10, 1001, 100);// new supplier entries entered in supplier
-																			// object
-
-		Retailer retail = new Retailer(101, "Sammy", "Thane"); //new retailer entries
+		CustomerDaoImpl cust = context.getBean("custDao",CustomerDaoImpl.class); 
 		
-		Goods goods = new Goods(100,"Tv","1",2000.0);
-
-
-		
-
-		SupplierDaoImpl supp = new SupplierDaoImpl();
-
-		CustomerDaoImpl cust = new CustomerDaoImpl();
-		
-		 
-
 		Map<Integer, Customer> map = cust.getMap();
 
+		custSer.addCustomer(customer);               // Add customer
 		
+		custSer.addCustomer(customer2);  
 
-		custSer.addCustomer(customer);// Add customer
+		assertEquals(1, map.size());                 // Test Case To Validate Data Is Getting Added
+		
+		System.out.println(map.size());
 
-		assertEquals(1, map.size());// Test Case To Validate Data Is Getting Added
-
-		custSer.removeCustomer(customer);//remove customer
+		custSer.removeCustomer(customer);            //remove customer
+		
+		assertEquals(1, map.size()); 
 
 		System.out.println(map.size()); 
+		
+		//*********************************************************//
+		
+		SupplierDaoImpl supp =  context.getBean("supplierDao",SupplierDaoImpl.class);
 		
 		Map<Integer, Supplier> map2 = supp.getMap();
 
 		sSer.addSupplier(serv);// Add Supplier
+		
+		sSer.addSupplier(serv2);
 
 		assertEquals(1, map2.size());// Test Case To Validate Data Is Getting Added
-
-		// supSer.removeSupplier(serv);
 		
-		GoodsDaoImpl good = new GoodsDaoImpl();
+		System.out.println(map.size());
+
+		 sSer.removeSupplier(serv);
+		 
+		 assertEquals(1, map2.size());
+		 
+		 System.out.println(map.size());
+		
+		//*********************************************************//
+		
+		GoodsDaoImpl good =context.getBean("goodsDao",GoodsDaoImpl.class) ;
 		
 		Map<Integer,Goods> map3 = good.getMap();
 		
 		gSer.addGoods(goods);
 		
-		assertEquals(1, map3.size());
+		gSer.addGoods(goods2);
+		
+		assertEquals(2, map3.size());
+		
+		 System.out.println(map.size());
+		 
+		 gSer.removeGoods(goods2);
+		 
+		 assertEquals(1,map.size());
+		 
+		
+		
 
 	}
 
