@@ -7,11 +7,29 @@ package com.cg.market.model;
  */
 public class Supplier {
 
+	/**
+	 * 
+	 */
 	private int supplierId;
+	/**
+	 * 
+	 */
 	private String supplierName;
+	/**
+	 * 
+	 */
 	private String supplierAddress;
+	/**
+	 * 
+	 */
 	private int quantityOrder;
+	/**
+	 * 
+	 */
 	private int orderId;
+	/**
+	 * 
+	 */
 	private double amount;
 
 	public Supplier() {
@@ -19,8 +37,8 @@ public class Supplier {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Supplier(int supplierId, String supplierName, String supplierAddress, int quantityOrder, int orderId,
-			double amount) {
+	public Supplier(final int supplierId,final String supplierName,final String supplierAddress,final int quantityOrder,final int orderId,
+			final	double amount) {
 		super();
 		this.supplierId = supplierId;
 		this.supplierName = supplierName;
@@ -54,27 +72,27 @@ public class Supplier {
 		return supplierName;
 	}
 
-	public void setAmount(double amount) {
+	public void setAmount( final double amount) {
 		this.amount = amount;
 	}
 
-	public void setOrderId(int orderId) {
+	public void setOrderId(final int orderId) {
 		this.orderId = orderId;
 	}
 
-	public void setQuantityOrder(int quantityOrder) {
+	public void setQuantityOrder(final int quantityOrder) {
 		this.quantityOrder = quantityOrder;
 	}
 
-	public void setSupplierAddress(String supplierAddress) {
+	public void setSupplierAddress(final String supplierAddress) {
 		this.supplierAddress = supplierAddress;
 	}
 
-	public void setSupplierId(int supplierId) {
+	public void setSupplierId(final int supplierId) {
 		this.supplierId = supplierId;
 	}
 
-	public void setSupplierName(String supplierName) {
+	public void setSupplierName(final String supplierName) {
 		this.supplierName = supplierName;
 	}
 

@@ -14,14 +14,14 @@ import com.cg.market.service.SupplierService;
 
 public class MarketController {
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-		CustomerService custSer = context.getBean("custService", CustomerService.class);
+		final CustomerService custSer = context.getBean("custService", CustomerService.class);
 
-		Customer customer = context.getBean("cust", Customer.class);
+		final Customer customer = context.getBean("cust", Customer.class);
 
 		customer.setCustomerId(1);
 		customer.setCustomerName("Aishwarya");
@@ -45,9 +45,9 @@ public class MarketController {
 
 		//***************************************************************************//*
 		
-		GoodsService goodsSer = context.getBean("gService", GoodsService.class);
+		final GoodsService goodsSer = context.getBean("gService", GoodsService.class);
 
-		Goods goods = context.getBean("good", Goods.class);
+		final Goods goods = context.getBean("good", Goods.class);
 
 		goods.setGoodsId(101);
 		goods.setGoodsName("TV");
@@ -73,9 +73,9 @@ public class MarketController {
 		
 		//******************************************************************************//
 		
-		SupplierService suppSer = context.getBean("sService",SupplierService.class);
+		final SupplierService suppSer = context.getBean("sService",SupplierService.class);
 		
-		Supplier supplier  = context.getBean("supp",Supplier.class);
+		final Supplier supplier  = context.getBean("supp",Supplier.class);
 		
 		supplier.setSupplierId(1000);
 		supplier.setSupplierName("Ashish");
@@ -108,8 +108,8 @@ public class MarketController {
 		//*************************************************************************************//
 		
 		
-		RetailerService retSer =  context.getBean("rService",RetailerService.class);
-		Retailer retailer = context.getBean("ret", Retailer.class);
+		final RetailerService retSer =  context.getBean("rService",RetailerService.class);
+		final Retailer retailer = context.getBean("ret", Retailer.class);
 		
 		retailer.setRetailerId(100);
 		retailer.setRetailerName("Aarav");

@@ -6,26 +6,29 @@ import com.cg.market.repository.SupplierDao;
 public class SupplierServiceImpl implements SupplierService {
 
 	
-	SupplierDao suppDao;
-	SupplierServiceImpl (SupplierDao suppDao)
+	/**
+	 * 
+	 */
+	public SupplierDao suppDao;
+	SupplierServiceImpl (final SupplierDao suppDao)
 	{
 		this.suppDao=suppDao;
 	}
 	
 
-	public Supplier addSupplier(Supplier supplier) {
+	public Supplier addSupplier(final Supplier supplier) {
 		
 		return suppDao.addSupplier(supplier);
 	}
 
 	
-	public Supplier removeSupplier(Supplier supplier) {
+	public Supplier removeSupplier(final Supplier supplier) {
 		
 		return suppDao.removeSupplier(supplier);
 	}
 
 	
-	public Supplier updateSupplier(Supplier supplier) {
+	public Supplier updateSupplier(final Supplier supplier) {
 		
 		return suppDao.updateSupplier(supplier);
 	}

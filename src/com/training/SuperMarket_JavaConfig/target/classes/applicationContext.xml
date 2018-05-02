@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+ <bean id="dataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+  
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/aishwarya" />
+        <property name="username" value="root" />
+        <property name="password" value="root" />
+    </bean>
+     
+  <!--   <bean id="customerDao" class="com.cg.market.repository.CustomerDaoImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean> -->
+    <!--  <bean id="goodsDao" class="com.cg.market.repository.GoodsDaoImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+     <bean id="supplierDao" class="com.cg.market.repository.SupplierDaoImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <bean id = "retailerDao" class = "com.cg.market.repository.RetailerDaoImpl">
+    </bean>
+      -->
+     <bean id = "custService" class = "com.cg.market.service.CustomerServiceImpl">
+     	<constructor-arg index = "0" ref = "customerDao"></constructor-arg>
+     </bean>
+     
+     <bean id = "gService" class = "com.cg.market.service.GoodsServiceImpl">
+     	<constructor-arg index = "0" ref = "goodsDao"></constructor-arg>
+     </bean>
+     
+     <bean id = "sService" class = "com.cg.market.service.SupplierServiceImpl">
+     	<constructor-arg index = "0" ref = "supplierDao">  </constructor-arg>
+     </bean>
+     
+     <bean id = "rService" class = "com.cg.market.service.RetailerServiceImpl">
+     	<constructor-arg index = "0" ref = "retailerDao">  </constructor-arg>
+     </bean>
+     
+     
+     <bean id = "cust" class = "com.cg.market.model.Customer"/>
+     
+     <bean id = "good" class = "com.cg.market.model.Goods"/>
+     
+     <bean id = "supp" class = "com.cg.market.model.Supplier"/>
+     
+     <bean id = "ret" class = "com.cg.market.model.Retailer"/>
+</beans>

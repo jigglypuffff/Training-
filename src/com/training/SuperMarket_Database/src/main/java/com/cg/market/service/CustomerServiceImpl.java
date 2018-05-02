@@ -5,27 +5,30 @@ import com.cg.market.repository.CustomerDao;
 
 public class CustomerServiceImpl implements CustomerService {
 
-	CustomerDao custDao;
+	/**
+	 * 
+	 */
+	public CustomerDao custDao;
 	
-	CustomerServiceImpl(CustomerDao custDao)
+	CustomerServiceImpl(final CustomerDao custDao)
 	{
 		this.custDao=custDao;
 	}
 	
 	
-	public Customer addCustomer(Customer customer) {
+	public Customer addCustomer(final Customer customer) {
 		
 		return custDao.addCustomer(customer);
 	}
 
 	
-	public Customer removeCustomer(Customer customer) {
+	public Customer removeCustomer(final Customer customer) {
 		
 		return custDao.removeCustomer(customer);
 	}
 
 	
-	public Customer updateCustomer(Customer customer) {
+	public Customer updateCustomer(final Customer customer) {
 		
 		return custDao.updateCustomer(customer);
 	}

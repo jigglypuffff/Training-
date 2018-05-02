@@ -2,6 +2,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.cg.market.controller.MarketController;
 import com.cg.market.model.Customer;
 import com.cg.market.model.Goods;
 import com.cg.market.model.Retailer;
@@ -10,6 +11,12 @@ import com.cg.market.model.Supplier;
 public class MarketTest {
 
 
+	MarketController test = new MarketController();
+	
+	@Test
+	public void customerTests() {
+	
+	}
 		Customer customer=new Customer(1,"aishwarya","London","cash");
 		
 		Supplier supplier=new Supplier(101,"ashish","mumbai",2,111,200.2);

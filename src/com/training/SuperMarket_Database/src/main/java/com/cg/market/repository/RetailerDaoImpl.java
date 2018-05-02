@@ -14,16 +14,26 @@ import com.cg.market.model.Goods;
 import com.cg.market.model.Retailer;
 import com.cg.market.model.Supplier;
 
+/**
+ * @author trainee
+ *
+ */
 public class RetailerDaoImpl implements RetailerDao{
 
+	/**
+	 * 
+	 */
 	private DataSource dataSource;
+    /**
+     * 
+     */
     private JdbcTemplate jdbcTemplate;
     
 	public DataSource getDataSource() {
 		return dataSource;
 	}
 
-	public void setDataSource(DataSource dataSource) {
+	public void setDataSource(final DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 	
@@ -37,11 +47,11 @@ public class RetailerDaoImpl implements RetailerDao{
 		*/
 		
 		
-		    String sql = "SELECT * FROM customer";
+		final  String sql = "SELECT * FROM customer";
 		    List<Customer> customerList = jdbcTemplate.query(sql, new RowMapper<Customer>() {
 		 
 		        @Override
-		        public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
+		        public Customer mapRow(final ResultSet rs, final int rowNum) throws SQLException {
 		        	Customer customer = new Customer();
 		 
 		        	customer.setCustomerId(rs.getInt("customerId"));
@@ -72,10 +82,10 @@ public class RetailerDaoImpl implements RetailerDao{
 	}
 
 	@Override
-	public Retailer addRetailer(Retailer retailer) {
-		String query = "INSERT INTO retailer (retailerId, retailerName, retailerAddress) VALUES (?,?,?)"; 
+	public Retailer addRetailer(final Retailer retailer) {
+		final String query = "INSERT INTO retailer (retailerId, retailerName, retailerAddress) VALUES (?,?,?)"; 
 		jdbcTemplate = new JdbcTemplate(dataSource);
-		Object[] inputs = new Object[] {retailer.getRetailerId(),retailer.getRetailerName(),retailer.getRetailerAddress()};
+		final Object[] inputs = new Object[] {retailer.getRetailerId(),retailer.getRetailerName(),retailer.getRetailerAddress()};
 		jdbcTemplate.update(query,inputs);
 		return retailer;
 	}

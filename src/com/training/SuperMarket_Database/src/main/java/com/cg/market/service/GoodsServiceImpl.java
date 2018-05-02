@@ -5,25 +5,28 @@ import com.cg.market.repository.GoodsDao;
 
 public class GoodsServiceImpl implements GoodsService {
 
-GoodsDao goodsDao;
+/**
+ * 
+ */
+public GoodsDao goodsDao;
 
-GoodsServiceImpl(GoodsDao goodsDao)
+GoodsServiceImpl(final GoodsDao goodsDao)
 {
 	this.goodsDao=goodsDao;
 }
-	public Goods addGoods(Goods goods) {
+	public Goods addGoods(final Goods goods) {
 	
 		return goodsDao.addGoods(goods);
 	}
 
 	
-	public Goods removeGoods(Goods goods) {
+	public Goods removeGoods(final Goods goods) {
 		
 		return goodsDao.removeGoods(goods);
 	}
 
 	
-	public Goods updateGoods(Goods goods) {
+	public Goods updateGoods(final Goods goods) {
 		
 		return goodsDao.updateGoods(goods);
 	}

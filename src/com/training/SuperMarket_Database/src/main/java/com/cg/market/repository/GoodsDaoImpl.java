@@ -6,46 +6,56 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.cg.market.model.Goods;
 
+/**
+ * @author aishwarya
+ *
+ */
 public class GoodsDaoImpl implements GoodsDao {
 
 
+	/**
+	 * 
+	 */
 	private DataSource dataSource;
+    /**
+     * 
+     */
     private JdbcTemplate jdbcTemplate;
     
 	public DataSource getDataSource() {
 		return dataSource;
 	}
 
-	public void setDataSource(DataSource dataSource) {
+	public void setDataSource(final DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 	
-	public Goods addGoods(Goods goods) {
-		String query = "INSERT INTO goods (goodsId, goodsName, goodsQuantity, goodsPrice) VALUES (?,?,?,?)"; 
+	public Goods addGoods(final Goods goods) {
+		final String query = "INSERT INTO goods (goodsId, goodsName, goodsQuantity, goodsPrice) VALUES (?,?,?,?)"; 
 		jdbcTemplate = new JdbcTemplate(dataSource);
-		Object[] inputs = new Object[] {goods.getGoodsId(),goods.getGoodsName(),goods.getGoodsQuantity(),goods.getGoodsPrice()};
+		final Object[] inputs = new Object[] {goods.getGoodsId(),goods.getGoodsName(),goods.getGoodsQuantity(),goods.getGoodsPrice()};
 		jdbcTemplate.update(query,inputs);
 		
 		return goods;
 	}
 
 	
-	public Goods removeGoods(Goods goods) {
+	public Goods removeGoods(final Goods goods) {
 
-		String query = "DELETE FROM goods WHERE goodsId = ?";
+		final String query = "DELETE FROM goods WHERE goodsId = ?";
 		jdbcTemplate = new JdbcTemplate(dataSource);
-		Object[] input = new Object[] {goods.getGoodsId()};
+		final Object[] input = new Object[] {goods.getGoodsId()};
 		jdbcTemplate.update(query,input);
 		
 		return goods;
 	}
 
 	
-	public Goods updateGoods(Goods goods) {
+	public Goods updateGoods(final Goods goods) {
 
-		String query = "UPDATE goods SET goodsName = ? WHERE goodsId=?";
+		final String query = "UPDATE goods SET goodsName = ? WHERE goodsId=?";
 		jdbcTemplate = new JdbcTemplate(dataSource);
-		Object[] inputs = new Object[] {goods.getGoodsName(),goods.getGoodsId()};
+		final Object[] inputs = new Object[] {goods.getGoodsName(),goods.getGoodsId()};
 		jdbcTemplate.update(query,inputs);
 		
 		

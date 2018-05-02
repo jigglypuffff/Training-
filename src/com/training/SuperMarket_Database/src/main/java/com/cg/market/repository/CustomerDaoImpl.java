@@ -6,44 +6,54 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.cg.market.model.Customer;
 
+/**
+ * @author aishwarya
+ *
+ */
 public class CustomerDaoImpl implements CustomerDao {
 	
+	/**
+	 * 
+	 */
 	private DataSource dataSource;
+    /**
+     * 
+     */
     private JdbcTemplate jdbcTemplate;
     
 	public DataSource getDataSource() {
 		return dataSource;
 	}
 
-	public void setDataSource(DataSource dataSource) {
+	public void setDataSource(final DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 
-	public Customer addCustomer(Customer customer) {
+	public Customer addCustomer(final Customer customer) {
 		
-		String query = "INSERT INTO customer (customerId, customerName, customerAddress, paymentMode) VALUES (?,?,?,?)"; 
+		final String query = "INSERT INTO customer (customerId, customerName, customerAddress, paymentMode) VALUES (?,?,?,?)"; 
 		jdbcTemplate = new JdbcTemplate(dataSource);
-		Object[] inputs = new Object[] {customer.getCustomerId(),customer.getCustomerName(),customer.getCustomerAddress(),customer.getPaymentMode()};
+		final Object[] inputs = new Object[] {customer.getCustomerId(),customer.getCustomerName(),customer.getCustomerAddress(),customer.getPaymentMode()};
 		jdbcTemplate.update(query,inputs);
 		
 		return customer;
 	}
 
-	public Customer removeCustomer(Customer customer) {
+	public Customer removeCustomer(final Customer customer) {
 		
-		String query = "DELETE FROM customer WHERE customerId = ?";
+		final String query = "DELETE FROM customer WHERE customerId = ?";
 		jdbcTemplate = new JdbcTemplate(dataSource);
-		Object[] input = new Object[] {customer.getCustomerId()};
+		final Object[] input = new Object[] {customer.getCustomerId()};
 		jdbcTemplate.update(query,input);
 		
 		return customer;
 	}
 
-	public Customer updateCustomer(Customer customer) {
+	public Customer updateCustomer(final Customer customer) {
 		
-		String query = "UPDATE customer SET customerName = ? WHERE customerId=?";
+		final String query = "UPDATE customer SET customerName = ? WHERE customerId=?";
 		jdbcTemplate = new JdbcTemplate(dataSource);
-		Object[] inputs = new Object[] {customer.getCustomerName(),customer.getCustomerId()};
+		final Object[] inputs = new Object[] {customer.getCustomerName(),customer.getCustomerId()};
 		jdbcTemplate.update(query,inputs);
 		
 		

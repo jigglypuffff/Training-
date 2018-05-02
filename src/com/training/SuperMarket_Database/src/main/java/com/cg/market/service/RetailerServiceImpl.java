@@ -10,9 +10,12 @@ import com.cg.market.repository.RetailerDao;
 
 public class RetailerServiceImpl implements RetailerService {
 
-	RetailerDao rDao;
+	/**
+	 * 
+	 */
+	public RetailerDao rDao;
 	
-	RetailerServiceImpl(RetailerDao rDao)
+	RetailerServiceImpl(final RetailerDao rDao)
 	{
 		this.rDao = rDao;
 	}
@@ -36,9 +39,12 @@ public class RetailerServiceImpl implements RetailerService {
 	}
 
 	@Override
-	public Retailer addRetailer(Retailer retailer) {
+	public Retailer addRetailer(final Retailer retailer) {
 		// TODO Auto-generated method stub
 		return rDao.addRetailer(retailer);
+		
+		
+		
 	}
 
 }

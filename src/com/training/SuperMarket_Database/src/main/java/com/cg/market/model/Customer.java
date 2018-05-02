@@ -6,9 +6,21 @@ package com.cg.market.model;
  */
 public class Customer {
 
+	/**
+	 * 
+	 */
 	private int customerId;
+	/**
+	 * 
+	 */
 	private String customerName;
+	/**
+	 * 
+	 */
 	private String customerAddress;
+	/**
+	 * 
+	 */
 	private String paymentMode;
 
 	public Customer() {
@@ -16,7 +28,7 @@ public class Customer {
 		
 	}
 
-	public Customer(int customerId, String customerName, String customerAddress, String paymentMode) {
+	public Customer(final int customerId, final String customerName, final String customerAddress, final String paymentMode) {
 		super();
 		this.customerId = customerId;
 		this.customerName = customerName;
@@ -40,19 +52,19 @@ public class Customer {
 		return paymentMode;
 	}
 
-	public void setCustomerAddress(String customerAddress) {
+	public void setCustomerAddress(final String customerAddress) {
 		this.customerAddress = customerAddress;
 	}
 
-	public void setCustomerId(int customerId) {
+	public void setCustomerId(final int customerId) {
 		this.customerId = customerId;
 	}
 
-	public void setCustomerName(String customerName) {
+	public void setCustomerName(final String customerName) {
 		this.customerName = customerName;
 	}
 
-	public void setPaymentMode(String paymentMode) {
+	public void setPaymentMode(final String paymentMode) {
 		this.paymentMode = paymentMode;
 	}
 
