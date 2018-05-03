@@ -79,6 +79,39 @@ public class ApplicationConfig {
 		return jdbcTemplate;
 	}
 	
+	/*@Bean (name="cController")
+	
+		public SuperMarketController getController(final CustomerService customerService)
+		{
+			final SuperMarketController ccontrol = new SuperMarketController(customerService);
+			return ccontrol;
+		}
+	
+	@Bean (name="gController")
+	
+	public SuperMarketController getController(final GoodsService goodsService)
+	{
+		final SuperMarketController gcontrol = new SuperMarketController(goodsService);
+		return gcontrol;
+	}
+	
+	@Bean (name="sController")
+	
+	public SuperMarketController getController(final SupplierService supplierService)
+	{
+		final SuperMarketController scontrol = new SuperMarketController(supplierService);
+		return scontrol;
+	}
+	
+	@Bean (name="rController")
+	
+	public SuperMarketController getController(final RetailerService retailerService)
+	{
+		final SuperMarketController rcontrol = new SuperMarketController(retailerService);
+		return rcontrol;
+	}
+	*/
+	
 	@Bean(name = "customerService")
 	public CustomerService getCustomerService(final CustomerDao customerDao)
 	{
