@@ -24,7 +24,7 @@ public class RetailerServiceImpl implements RetailerService {
 		this.retailerDao = retailerDao;
 	}
 	
-	@Override
+	/*@Override
 	public List<Customer> clist() {
 		
 		return retailerDao.clist();
@@ -40,12 +40,24 @@ public class RetailerServiceImpl implements RetailerService {
 	public List<Goods> glist() {
 		// TODO Auto-generated method stub
 		return retailerDao.glist();
-	}
+	}*/
 
 	@Override
 	public Retailer addRetailer(final Retailer retailer) {
 		// TODO Auto-generated method stub
 		return retailerDao.addRetailer(retailer);
+	}
+
+	@Override
+	public Retailer removeRetailer(final Retailer retailer) {
+		// TODO Auto-generated method stub
+		return retailerDao.removeRetailer(retailer);
+	}
+
+	@Override
+	public Retailer updateRetailer(final Retailer retailer) {
+		// TODO Auto-generated method stub
+		return retailerDao.updateRetailer(retailer);
 	}
 
 }

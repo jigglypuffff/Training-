@@ -7,83 +7,185 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.cg.market.controller.ApplicationConfig;
 import com.cg.market.model.Customer;
 import com.cg.market.model.Goods;
+import com.cg.market.model.Retailer;
 import com.cg.market.model.Supplier;
 import com.cg.market.service.CustomerService;
 import com.cg.market.service.GoodsService;
 import com.cg.market.service.RetailerService;
 import com.cg.market.service.SupplierService;
 
+/**
+ * @author trainee
+ *
+ */
 public class MarketTest {
 
-	ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+	/**
+	 * 
+	 */
+	public ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 
+	/**
+	 * 
+	 */
+	public CustomerService custService = (CustomerService) context.getBean("customerService");
+	/**
+	 * 
+	 */
+	public GoodsService goodsService = (GoodsService) context.getBean("goodsService");
+	/**
+	 * 
+	 */
+	public SupplierService supplierService = (SupplierService) context.getBean("supplierService");
+	/**
+	 * 
+	 */
+	public RetailerService retailerService = (RetailerService) context.getBean("retailerService");
 
-	CustomerService custService = (CustomerService) context.getBean("customerService");
-	GoodsService goodsService = (GoodsService) context.getBean("goodsService");
-	SupplierService supplierService = (SupplierService) context.getBean("supplierService");
-	RetailerService retailerService = (RetailerService) context.getBean("retailerService");
+	/**
+	 * 
+	 */
+	@Test
+	@SuppressWarnings("PMD.JUnitTestContainsTooManyAsserts")
+	public void customerTest() {
 
+		final Customer customer = new Customer(1, "aishwarya", "London", "cash");
+		final Customer customer1 = new Customer(2, "Ash", "Paris", "Card");
 
-
-@Test
-public void customerTest() {
-
-	Customer customer = new Customer(1, "aishwarya", "London", "cash");
-	
-	Customer value=custService.addCustomer(customer);
-	assertEquals(customer, value);
-}
-
-@Test
-public void goodsTest() {
-
-	Goods goods = new Goods(102, "tv", "2",2000);
-
-	Goods value=goodsService.addGoods(goods);
-	assertEquals(goods, value);
-}
-
-
-@Test
-public void supplierTest() {
-
-	Supplier sup = new Supplier(1000, "Ashish Sharma", "Delhi", 4 ,1,3000);
-	
-	Supplier value=supplierService.addSupplier(sup);
-	assertEquals(sup, value);
-}
-
-
-@Test
-public void customerRemoveTest() {
-
-	Customer customer = new Customer(1, "aishwarya", "London", "cash");
-//	Customer customer = new Customer(2, "Yash", "New York", "cash");
-	
-	Customer value=custService.removeCustomer(customer);
-	assertEquals(customer, value);
-}
-
-
-@Test
-public void goodsRemoveTest() {
-
-	Goods goods = new Goods(102, "Fridge", "2",1212);
-
-	Goods value=goodsService.removeGoods(goods);
-	assertEquals(goods, value);
-}
-@Test
-public void supplierRemoveTest() {
-
-	Supplier sup = new Supplier(1, "shruti", "pune", 2,1,200);
-	//	CustomerDao customerService;
-	Supplier value=supplierService.removeSupplier(sup);
-	assertEquals(sup, value);
-}
-
-	
-	
+		final Customer value = custService.addCustomer(customer);
+		final Customer value1 = custService.addCustomer(customer1);
+		
+		assertEquals("true",customer, value);
+		assertEquals("true",customer1, value1);
 	}
 
+	/**
+	 * 
+	 */
+	@Test
+	public void goodsTest() {
 
+		final Goods goods = new Goods(102, "tv", "2", 2000);
+
+		final Goods value = goodsService.addGoods(goods);
+		assertEquals("true",goods, value);
+	}
+
+	/**
+	 * 
+	 */
+	@Test
+	public void supplierTest() {
+
+		final Supplier sup = new Supplier(1000, "Ashish Sharma", "Delhi", 4, 1, 3000);
+
+		final Supplier value = supplierService.addSupplier(sup);
+		assertEquals("true",sup, value);
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void retailerTest() {
+
+		final Retailer ret = new Retailer(100, "Aarav", "USA");
+
+		final Retailer value = retailerService.addRetailer(ret);
+		assertEquals("true",ret, value);
+	}
+
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void customerRemoveTest() {
+
+		final Customer customer = new Customer(1, "aishwarya", "London", "cash");
+		
+		final Customer value = custService.removeCustomer(customer);
+		assertEquals("true",customer, value);
+	}
+
+	/**
+	 * 
+	 */
+	@Test
+	public void goodsRemoveTest() {
+
+		final Goods goods = new Goods(102, "Fridge", "2", 1212);
+
+		final Goods value = goodsService.removeGoods(goods);
+		assertEquals("true",goods, value);
+	}
+
+	/**
+	 * 
+	 */
+	@Test
+	public void supplierRemoveTest() {
+
+		final Supplier sup = new Supplier(1, "shruti", "pune", 2, 1, 200);
+		
+		final Supplier value = supplierService.removeSupplier(sup);
+		assertEquals("true",sup, value);
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void retailerRemoveTest() {
+
+		final Retailer ret = new Retailer(100, "Aarav", "USA");
+
+		final Retailer value = retailerService.removeRetailer(ret);
+		assertEquals("true",ret, value);
+	}
+	
+	/**
+	 * 
+	 */
+	public void customerUpdateTest() {
+		final Customer customer = new Customer(2, "Aishu", "Paris", "Card");
+
+		final Customer value = custService.updateCustomer(customer);
+		assertEquals("true",customer, value);
+	}
+	
+	/**
+	 * 
+	 */
+	public void goodsUpdateTest()
+	{
+		final Goods goods = new Goods(102, "reFridgerator", "2", 1212);
+
+		final Goods value = goodsService.updateGoods(goods);
+		assertEquals("true",goods, value);
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void supplierUpdateTest() {
+
+		final Supplier sup = new Supplier(1, "Aishu", "USA", 2, 1, 200);
+		
+		final Supplier value = supplierService.updateSupplier(sup);
+		assertEquals("true",sup, value);
+	}
+
+	/**
+	 * 
+	 */
+	@Test
+	public void retailerUpdateTest() {
+
+		final Retailer ret = new Retailer(100, "Aarav", "USA");
+
+		final Retailer value = retailerService.updateRetailer(ret);
+		assertEquals("true",ret, value);
+	}
+}
