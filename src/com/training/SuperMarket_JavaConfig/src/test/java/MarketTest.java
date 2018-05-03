@@ -144,26 +144,6 @@ public class MarketTest {
 		assertEquals("true",ret, value);
 	}
 	
-	/**
-	 * 
-	 */
-	public void customerUpdateTest() {
-		final Customer customer = new Customer(2, "Aishu", "Paris", "Card");
-
-		final Customer value = custService.updateCustomer(customer);
-		assertEquals("true",customer, value);
-	}
-	
-	/**
-	 * 
-	 */
-	public void goodsUpdateTest()
-	{
-		final Goods goods = new Goods(102, "reFridgerator", "2", 1212);
-
-		final Goods value = goodsService.updateGoods(goods);
-		assertEquals("true",goods, value);
-	}
 	
 	/**
 	 * 
