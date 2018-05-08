@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<b>Hello World ! Welcome To Retail Supply Chain </b><br>
-<a href = "AddCustomer.jsp">ADD CUSTOMER</a><br>
-<a href = "ViewAll.jsp">VIEW ALL</a><br>
-<a href = "Delete.jsp">DELETE</a><br>
+<h1>Successfully added</h1>
 </body>
 </html>
