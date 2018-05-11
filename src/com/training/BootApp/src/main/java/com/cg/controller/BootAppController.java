@@ -10,13 +10,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.model.Customer;
+import com.cg.model.Goods;
 import com.cg.service.CustomerServiceImpl;
+import com.cg.service.GoodsServiceImpl;
 
 @RestController
 public class BootAppController {
 
 	@Autowired
 	CustomerServiceImpl custService;
+	@Autowired
+	GoodsServiceImpl goodsService;
 
 	@RequestMapping(value = "/customer", method = RequestMethod.POST)
 	public void add(@RequestBody Customer customer) {
@@ -42,4 +46,39 @@ public class BootAppController {
 	public Customer updateCustomer(@RequestBody Customer customer) {
 		return custService.updateCustomer(customer);
 	}
+	
+	/**********************************************************************************************/
+	
+	
+	@RequestMapping(value= "/addGoods", method = RequestMethod.POST)
+	public void addGoods(@RequestBody Goods goods)
+	{
+		goodsService.addGoods(goods);
+	}
+	
+	@RequestMapping(value= "/viewGoods", method = RequestMethod.GET)
+	public List<Goods> showAllGoods()
+	{
+		return goodsService.viewGoods();	
+	}
+	
+	@RequestMapping(value= "/viewGoodsById{goodsId}", method = RequestMethod.GET)
+	public Goods showGoodsById(@PathVariable int goodsId)
+	{
+		return goodsService.viewGoodsById(goodsId);
+	}
+	
+	@RequestMapping(value= "/deleteGoods",method=RequestMethod.DELETE)
+	public int removeGoods(@RequestBody Goods goods)
+	{
+		return goodsService.deleteGoods(goods);
+	}
+	
+	@RequestMapping(value= "/updateGoods",method = RequestMethod.PUT)
+	public Goods updateGoods(@RequestBody Goods goods)
+	{
+		return goodsService.updateGoods(goods);
+	}
+	
+	/***************************************************************************************************/
 }
