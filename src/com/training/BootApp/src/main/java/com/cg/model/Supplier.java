@@ -1,4 +1,4 @@
-/*package com.cg.model;
+package com.cg.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,42 +6,42 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-*//**
+/**
  * @author aishwarya
  *
- *//*
+ */
 @Entity
 public class Supplier {
 
-	*//**
+	/**
 	 * 
-	 *//*
+	 */
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
 	private int supplierId;
-	*//**
+	/**
 	 * 
-	 *//*
+	 */
 	@Column
 	private String supplierName;
-	*//**
+	/**
 	 * 
-	 *//*
+	 */
 	@Column
 	private String supplierAddress;
-	*//**
+	/**
 	 * 
-	 *//*
+	 */
 	@Column
 	private int quantityOrder;
-	*//**
+	/**
 	 * 
-	 *//*
+	 */
 	@Column
 	private int orderId;
-	*//**
+	/**
 	 * 
-	 *//*
+	 */
 	@Column
 	private double amount;
 
@@ -117,4 +117,3 @@ public class Supplier {
 	}
 
 }
-*/
