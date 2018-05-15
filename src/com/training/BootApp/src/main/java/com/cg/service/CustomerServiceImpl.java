@@ -17,6 +17,9 @@ public class CustomerServiceImpl implements CustomerService {
 	public Customer add(Customer customer) {
 		return customerDao.save(customer);
 	}
+	
+	
+	
 
 	@Override
 	public List<Customer> getCustomers() {
@@ -50,5 +53,7 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDao.save(obj);
 
 	}
+
+	
 
 }

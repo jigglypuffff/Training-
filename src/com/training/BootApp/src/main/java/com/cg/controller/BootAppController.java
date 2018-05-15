@@ -3,6 +3,8 @@ package com.cg.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,11 +23,20 @@ public class BootAppController {
 	CustomerServiceImpl custService;
 	@Autowired
 	GoodsServiceImpl goodsService;
-
+	
+	
 	@RequestMapping(value = "/customer", method = RequestMethod.POST)
 	public void add(@RequestBody Customer customer) {
 		custService.add(customer);
 	}
+	
+	
+	/*@RequestMapping(value = "/customer", method = RequestMethod.POST)
+	public ResponseEntity<String> add(@RequestBody Customer customer)
+	{
+	    System.out.println(customer);
+	    return new ResponseEntity(HttpStatus.CREATED);
+	}*/
 
 	@RequestMapping(value = "/showCustomer", method = RequestMethod.GET)
 	public List<Customer> show() {
