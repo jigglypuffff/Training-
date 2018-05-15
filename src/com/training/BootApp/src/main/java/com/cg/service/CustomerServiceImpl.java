@@ -17,9 +17,6 @@ public class CustomerServiceImpl implements CustomerService {
 	public Customer add(Customer customer) {
 		return customerDao.save(customer);
 	}
-	
-	
-	
 
 	@Override
 	public List<Customer> getCustomers() {
@@ -27,11 +24,6 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDao.findAll();
 	}
 
-	/*
-	 * @Override public Customer getCustomerById(int id) {
-	 * 
-	 * return customerDao.getOne(id); }
-	 */
 	public Object viewById(int id) {
 		// TODO Auto-generated method stub
 		Object ob = customerDao.findById(id);
@@ -39,21 +31,21 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public int removeCustomer(Customer customer) {
+	public int removeCustomer(Integer customerId) {
 
-		customerDao.deleteById(customer.getCustId());
+		customerDao.deleteById(customerId);
 		return 1;
 	}
 
-	public Customer updateCustomer(Customer customer) {
+	public Customer updateCustomer(Integer customerId) {
 
-		Customer obj = customerDao.findById(customer.getCustId()).get();
-		obj.setPaymentMode("Dollars");
-		obj.setName("Aishwarya");
-		return customerDao.save(obj);
+		Customer customer;
+		customer = customerDao.getOne(customerId);
+
+		customer.setPaymentMode("Dollars");
+		customer.setName("Aishwarya");
+		return customerDao.save(customer);
 
 	}
-
-	
 
 }

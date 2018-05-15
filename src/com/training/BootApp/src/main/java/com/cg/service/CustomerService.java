@@ -9,11 +9,9 @@ public interface CustomerService {
 
 	public List<Customer> getCustomers();
 
-	//public Customer getCustomerById(int id);
-	
 	public Object viewById(int id);
 
-	public int removeCustomer(Customer customer);
-	
-	public Customer updateCustomer(Customer customer); 
+	public Customer updateCustomer(Integer customerId);
+
+	int removeCustomer(Integer customerId);
 }

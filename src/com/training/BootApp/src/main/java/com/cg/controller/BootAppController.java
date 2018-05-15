@@ -3,8 +3,6 @@ package com.cg.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,13 +47,13 @@ public class BootAppController {
 	}
 
 	@RequestMapping(value = "/deleteCustomer", method = RequestMethod.DELETE)
-	public int removeCustomer(@RequestBody Customer customer) {
-		return custService.removeCustomer(customer);
+	public int removeCustomer(@RequestBody Integer customerId) {
+		return custService.removeCustomer(customerId);
 	}
 
 	@RequestMapping(value = "/updateCustomer",method = RequestMethod.PUT)
-	public Customer updateCustomer(@RequestBody Customer customer) {
-		return custService.updateCustomer(customer);
+	public Customer updateCustomer(@RequestBody Integer customerId) {
+		return custService.updateCustomer(customerId);
 	}
 	
 	/**********************************************************************************************/
