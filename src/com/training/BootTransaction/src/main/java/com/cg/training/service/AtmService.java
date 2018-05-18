@@ -5,9 +5,19 @@ import com.cg.training.model.AtmWrapper;
 
 public interface AtmService {
 
-	public ATM createAtm(AtmWrapper atm);
+	 /**
+	 * @param atm
+	 * @return
+	 */
+	ATM createAtm(AtmWrapper atm);
 	
-	public int addMoneyFromBank();
+	 /**
+	 * @return
+	 */
+	int addMoneyFromBank();
 	
-	public String withdrawMoney();
+	 /**
+	 * @return
+	 */
+	String withdrawMoney();
 }

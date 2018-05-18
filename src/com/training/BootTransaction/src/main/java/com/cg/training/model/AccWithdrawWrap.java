@@ -4,44 +4,61 @@ import java.math.BigDecimal;
 
 public class AccWithdrawWrap {
 
+	private Integer bankId;
+	/**
+	 * 
+	 */
 	private BigDecimal amount;
-	private Integer account;
-	private Integer bank;
-
+	/**
+	 * 
+	 */
+	private Account account;
+	/**
+	 * 
+	 */
+	private Integer customerId;
+	public Integer getBankId() {
+		return bankId;
+	}
+	public void setBankId(Integer bankId) {
+		this.bankId = bankId;
+	}
 	public BigDecimal getAmount() {
 		return amount;
 	}
-
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+	public Account getAccount() {
+		return account;
+	}
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+	public Integer getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
+	@Override
+	public String toString() {
+		return "AccWithdrawWrap [bankId=" + bankId + ", amount=" + amount + ", account=" + account + ", customerId="
+				+ customerId + "]";
+	}
+	public AccWithdrawWrap(Integer bankId, BigDecimal amount, Account account, Integer customerId) {
+		super();
+		this.bankId = bankId;
+		this.amount = amount;
+		this.account = account;
+		this.customerId = customerId;
+	}
 	public AccWithdrawWrap() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getAccount() {
-		return account;
-	}
+	
 
-	public void setAccount(Integer account) {
-		this.account = account;
-	}
-
-	public void setAmount(BigDecimal amount) {
-		this.amount = amount;
-	}
-
-	public AccWithdrawWrap(BigDecimal amount, Integer account, Integer bank) {
-		super();
-		this.amount = amount;
-		this.account = account;
-		this.bank = bank;
-	}
-
-	public Integer getBank() {
-		return bank;
-	}
-
-	public void setBank(Integer bank) {
-		this.bank = bank;
-	}
 
 }

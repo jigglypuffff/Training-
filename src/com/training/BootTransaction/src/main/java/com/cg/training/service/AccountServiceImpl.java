@@ -3,6 +3,7 @@ package com.cg.training.service;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,34 +21,62 @@ import com.cg.training.model.Transaction;
 
 @Service
 public class AccountServiceImpl implements AccountService {
-
+	Logger log = Logger.getLogger("myfirstlogger");
+	/**
+	 * 
+	 */
 	@Autowired
 	AccountRepository accDao;
+	/**
+	 * 
+	 */
 	@Autowired
 	CustomerRepository custDao;
+	/**
+	 * 
+	 */
 	@Autowired
 	BankRepository bankDao;
+	/**
+	 * 
+	 */
 	@Autowired
 	TransactionRepository trans;
 
 	@Override
-	public String withdrawMoney(AccWithdrawWrap withdraw) {
+	public String withdrawMoney(final AccWithdrawWrap withdraw) {
+		log.info("Withdraw Section");
+		Integer bankid = withdraw.getBankId();
+		Optional<Bank> obj = bankDao.findById(bankid);
+		Bank bankobj = obj.get();// through bank Id we fetched the bank object
 
-		Optional<Bank> bid = bankDao.findById(withdraw.getBank());
-		Bank bank = bid.get();
+		Integer accountId = withdraw.getAccount().getAccountId();
 
-		Optional<Account> id = accDao.findById(withdraw.getAccount()); // get acc id from db
-		Account trueAcc = id.get(); // entire account object in trueAcc fetched by id
+		Optional<Account> accobj = accDao.findById(accountId);
 
-		BigDecimal amount = withdraw.getAmount(); // get amt from wrapper (to be withdrawn)
-		BigDecimal result = trueAcc.getAmount().subtract(amount); // (balance)
+		Account accountobj = accobj.get();//// through account Id we fetched the account object
 
-		trueAcc.setAmount(result);
-		bank.setAmount(result);
+		BigDecimal amounttowithdraw = withdraw.getAmount();
 
-		accDao.save(trueAcc);
-		bankDao.save(bank);
-		return "Success";
+		BigDecimal bankfetchedamount = bankobj.getAmount();
+
+		BigDecimal customercurrentamount = accountobj.getAmount();
+
+		BigDecimal updatedamount = customercurrentamount.subtract(amounttowithdraw);
+
+		accountobj.setAmount(updatedamount);
+
+		bankobj.setAmount(updatedamount);
+
+		bankDao.save(bankobj);
+
+		accDao.save(accountobj);
+		Transaction trsansact = new Transaction(withdraw.getCustomerId(), accountId, amounttowithdraw, "Withdraw");
+
+		trans.save(trsansact);
+
+		return "success";
+
 	}
 
 	@Override
@@ -57,19 +86,19 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public Account createAccount(AccountWrapper account) {
+	public Account createAccount(final AccountWrapper account) {
 
-		Optional<Customer> custOpt = custDao.findById(account.getcId());
+		final Optional<Customer> custOpt = custDao.findById(account.getcId().getCustomerId());
 
-		Customer cust = custOpt.get();
+		final Customer cust = custOpt.get();
 
-		Account acc = account.getAccount();
+		final Account acc = account.getAccount();
 
 		acc.setCustomerId(cust);
 
-		Optional<Bank> bankOpt = bankDao.findById(account.getbId());
+		final Optional<Bank> bankOpt = bankDao.findById(account.getbId().getBankId());
 
-		Bank bank = bankOpt.get();
+		final Bank bank = bankOpt.get();
 
 		acc.setBankId(bank);
 
@@ -77,52 +106,40 @@ public class AccountServiceImpl implements AccountService {
 
 	}
 
+
 	@Override
-	public String depositMoney(AccWithdrawWrap wrap) {
+	public String depositMoney(final AccWithdrawWrap deposit) {
+		// TODO Auto-generated method stub
+		Integer bankid = deposit.getBankId();
+		Optional<Bank> obj = bankDao.findById(bankid);
+		Bank bankobj = obj.get();// through bank Id we fetched the bank object
 
-		System.out.println("Hellossssssssssssss");
-		
-		Optional<Bank> bank = bankDao.findById(wrap.getBank());
+		Integer accountId = deposit.getAccount().getAccountId();
 
-		Bank banktrueobject = bank.get();
+		Optional<Account> accobj = accDao.findById(accountId);
 
-		Optional<Account> ob = accDao.findById(wrap.getAccount());
+		Account accountobj = accobj.get();//// through account Id we fetched the account object
 
-		Account obj = ob.get();
+		BigDecimal amounttodeposit = deposit.getAmount();
 
-	//Customer id=	wrap.getAccount().getCustomerId();
-	
-	
-	
-	 //Optional<Customer> obj2=custDao.findById(id.getCustomerId());
-	      
-	// Customer u=obj2.get();
-	 
-	//Integer o= u.getCustomerId();
-	
-	//System.out.println("Welcome"+o);
-	
-		BigDecimal a = wrap.getAmount();
+		BigDecimal bankfetchedamount = bankobj.getAmount();
 
-		BigDecimal customerinitialamount = obj.getAmount();
+		BigDecimal customercurrentamount = accountobj.getAmount();
 
-		BigDecimal c = a.add(customerinitialamount);
+		BigDecimal updatedamount = amounttodeposit.add(customercurrentamount);
 
-		BigDecimal d = banktrueobject.getAmount().add(a);
+		accountobj.setAmount(updatedamount);
 
-		banktrueobject.setAmount(d);
+		bankobj.setAmount(updatedamount);
 
-		bankDao.save(banktrueobject);
+		bankDao.save(bankobj);
 
-		obj.setAmount(c);
+		accDao.save(accountobj);
+		Transaction trsansact = new Transaction(deposit.getCustomerId(), accountId, amounttodeposit, "Deposit");
 
-		accDao.save(obj);
+		trans.save(trsansact);
 
-		//Transaction tr = new Transaction(o, obj.getAccountId(), a, "Deposit");
-
-		//trans.save(tr);
-
-		return "Success";
+		return "success";
 	}
 
 }

@@ -16,13 +16,19 @@ import com.cg.training.service.CustomerService;
 @RestController
 public class CustomerController {
 
+	/**
+	 * 
+	 */
 	@Autowired
 	BankService bankSer;
+	/**
+	 * 
+	 */
 	@Autowired
 	CustomerService custSer;
 
 	@RequestMapping(value = "/addcustomer", method = RequestMethod.POST)
-	public Customer addCustomer(@RequestBody CustomerWrapper customer) {
+	public Customer addCustomer(final @RequestBody CustomerWrapper customer) {
 	return custSer.createCustomer(customer);
 	}
 

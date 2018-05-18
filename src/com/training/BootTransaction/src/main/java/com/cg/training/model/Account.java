@@ -27,7 +27,7 @@ public class Account {
 		return accountId;
 	}
 
-	public void setAccountId(Integer accountId) {
+	public void setAccountId(final Integer accountId) {
 		this.accountId = accountId;
 	}
 
@@ -35,7 +35,7 @@ public class Account {
 		return customerId;
 	}
 
-	public void setCustomerId(Customer customerId) {
+	public void setCustomerId(final Customer customerId) {
 		this.customerId = customerId;
 	}
 
@@ -43,7 +43,7 @@ public class Account {
 		return amount;
 	}
 
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(final BigDecimal amount) {
 		this.amount = amount;
 	}
 

@@ -27,7 +27,7 @@ public class Transaction {
 		return transactionId;
 	}
 
-	public void setTransactionId(Integer transactionId) {
+	public void setTransactionId(final Integer transactionId) {
 		this.transactionId = transactionId;
 	}
 
@@ -35,7 +35,7 @@ public class Transaction {
 		return customerId;
 	}
 
-	public void setCustomerId(Integer customerId) {
+	public void setCustomerId(final Integer customerId) {
 		this.customerId = customerId;
 	}
 
@@ -43,7 +43,7 @@ public class Transaction {
 		return accountId;
 	}
 
-	public void setAccountId(Integer accountId) {
+	public void setAccountId(final Integer accountId) {
 		this.accountId = accountId;
 	}
 
@@ -51,7 +51,7 @@ public class Transaction {
 		return amount;
 	}
 
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(final BigDecimal amount) {
 		this.amount = amount;
 	}
 
@@ -59,7 +59,7 @@ public class Transaction {
 		return transactionType;
 	}
 
-	public void setTransactionType(String transactionType) {
+	public void setTransactionType(final String transactionType) {
 		this.transactionType = transactionType;
 	}
 
@@ -69,7 +69,7 @@ public class Transaction {
 				+ ", amount=" + amount + ", transactionType=" + transactionType + "]";
 	}
 
-	public Transaction(Integer customerId, Integer accountId, BigDecimal amount, String transactionType) {
+	public Transaction(final Integer customerId,final  Integer accountId,final  BigDecimal amount,final  String transactionType) {
 		super();
 
 		this.customerId = customerId;

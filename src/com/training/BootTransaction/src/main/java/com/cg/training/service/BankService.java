@@ -7,7 +7,18 @@ import com.cg.training.model.Bank;
 
 public interface BankService {
 
-	public Bank createBank(Bank bank);
-	public List<Bank> getBankDetails();
-	public Optional<Bank> getBankDetailById(Integer id);
+	 /**
+	 * @param bank
+	 * @return
+	 */
+	Bank createBank(Bank bank);
+	 /**
+	 * @return
+	 */
+	List<Bank> getBankDetails();
+	 /**
+	 * @param id
+	 * @return
+	 */
+	Optional<Bank> getBankDetailById(Integer id);
 }

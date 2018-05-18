@@ -13,11 +13,14 @@ import com.cg.training.service.BankService;
 @RestController
 public class BankController {
 
+	/**
+	 * 
+	 */
 	@Autowired
 	BankService bankSer;
 
 	@RequestMapping(value = "/addbank", method = RequestMethod.POST)
-	public void addBank(@RequestBody Bank bank) {
+	public void addBank(final @RequestBody Bank bank) {
 		bankSer.createBank(bank);
 	}
 

@@ -26,7 +26,7 @@ public class Customer {
 	public int getCustomerId() {
 		return customerId;
 	}
-	public void setCustomerId(Integer customerId) {
+	public void setCustomerId( final Integer customerId) {
 		this.customerId = customerId;
 	}
 	
@@ -34,26 +34,26 @@ public class Customer {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Customer(int customerId, Bank bankId, String name, int pin) {
+	public Customer(final int customerId,final  Bank bankId, final String name,final  int pin) {
 		super();
 		this.customerId = customerId;
 		this.bankId=bankId;
 		this.name = name;
 		this.pin = pin;
 	}
-	public void setBankId(Bank bankId) {
+	public void setBankId(final Bank bankId) {
 		this.bankId = bankId;
 	}
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name = name;
 	}
 	public int getPin() {
 		return pin;
 	}
-	public void setPin(int pin) {
+	public void setPin(final int pin) {
 		this.pin = pin;
 	}
 	

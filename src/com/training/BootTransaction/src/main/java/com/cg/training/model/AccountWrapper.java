@@ -3,24 +3,24 @@ package com.cg.training.model;
 public class AccountWrapper {
 
 	private Account account;
-	private Integer bId;
-	private Integer cId;
+	private Bank bId;
+	private Customer cId;
 	public Account getAccount() {
 		return account;
 	}
 	public void setAccount(Account account) {
 		this.account = account;
 	}
-	public Integer getbId() {
+	public Bank getbId() {
 		return bId;
 	}
-	public void setbId(Integer bId) {
+	public void setbId(Bank bId) {
 		this.bId = bId;
 	}
-	public Integer getcId() {
+	public Customer getcId() {
 		return cId;
 	}
-	public void setcId(Integer cId) {
+	public void setcId(Customer cId) {
 		this.cId = cId;
 	}
 	@Override

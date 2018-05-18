@@ -10,7 +10,7 @@ public class CustomerWrapper {
 		return customer;
 	}
 
-	public void setCustomer(Customer customer) {
+	public void setCustomer(final Customer customer) {
 		this.customer = customer;
 	}
 
@@ -23,7 +23,7 @@ public class CustomerWrapper {
 		return bId;
 	}
 
-	public void setbId(Integer bId) {
+	public void setbId(final Integer bId) {
 		this.bId = bId;
 	}
 	
